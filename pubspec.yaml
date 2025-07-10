@@ -17,6 +17,8 @@ dependencies:
   equatable:             # cleaner Bloc state comparisons
   shared_preferences:
   dio:
+  google_sign_in_android: 
+  google_sign_in_ios: 
 
 dev_dependencies:
   flutter_test:
