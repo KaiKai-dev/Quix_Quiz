@@ -1,0 +1,27 @@
+name: quiz_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc:
+  hydrated_bloc:         # for state persistence
+  supabase_flutter:
+  go_router:             # for navigation
+  intl:                  # formatting dates/scores
+  equatable:             # cleaner Bloc state comparisons
+  shared_preferences:
+  dio:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
