@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   flutter_bloc:
   hydrated_bloc:         # for state persistence
-  supabase_flutter:
+  supabase_flutter: ^2.9.1
   go_router:             # for navigation
   intl:                  # formatting dates/scores
   equatable:             # cleaner Bloc state comparisons
@@ -19,6 +19,7 @@ dependencies:
   dio:
   google_sign_in_android: 
   google_sign_in_ios: 
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:
