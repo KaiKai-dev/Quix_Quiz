@@ -10,8 +10,8 @@ void main() async {
     await Future.wait([
       // TODO: Configure supabase
       // Supabase.initialize(
-      //   url: 'https://xyzcompany.supabase.co',
-      //   anonKey: 'public-anon-key',
+      //   url: 'https://aogzaxgimdnukluaiobn.supabase.co',
+      //   anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvZ3pheGdpbWRudWtsdWFpb2JuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIxNjQ1MzIsImV4cCI6MjA2Nzc0MDUzMn0.KfhmiWUaaXdFlVPIqEX8WFOPtxaRP1ja4RlECsOOfy8',
       // ),
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
