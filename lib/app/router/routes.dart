@@ -30,7 +30,7 @@ final routes = GoRouter(
           name: 'leaderboards',
           builder: (context, state) => BlocProvider(
             create: (context) => LeaderboardCubit(),
-          child: LeaderboardLogic(),
+            child: LeaderboardLogic(),
           ),
         ),
         // GoRoute(

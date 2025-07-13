@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quiz_app/data/enum/pages.dart';
 import 'package:quiz_app/data/lists/route_data.dart';
 import 'package:quiz_app/presentation/global_components/global_toast.dart';
 
@@ -14,6 +15,24 @@ class MainFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      useLegacyColorScheme: false,
+      // type: BottomNavigationBarType.shifting,
+      backgroundColor: Colors.white,
+      selectedItemColor: Colors.blue,
+      unselectedItemColor: Colors.grey.shade700,
+      selectedIconTheme: IconThemeData(
+        size: 24,
+      ),
+      unselectedIconTheme: IconThemeData(
+        size: 20,
+      ),
+      selectedLabelStyle: TextStyle(
+        fontSize: 14,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 12,
+      ),
+      currentIndex: getLocationIndex(),
       onTap: (index){
         if(index == 2) {
           FToast().init(context).showToast(
@@ -24,34 +43,29 @@ class MainFooter extends StatelessWidget {
           );
           return;
         }
-        (indexedPages[index]!);
+        context.go(indexedPages[index]!);
       },
-      items: [
-        BottomNavigationBarItem(
-          label: "Home",
-          icon: Icon( Icons.home )
-        ),
-        BottomNavigationBarItem(
-          label: "Leaderboard",
-          icon: Icon( Icons.leaderboard )
-        ),
-        BottomNavigationBarItem(
-          label: "Settings",
-          icon: Icon(Icons.settings)
-        ),
-      ]
+      items: RootPageEnum.values.map(
+        (page) {
+          return BottomNavigationBarItem(
+            
+            icon: Icon(
+              page.displayIcon,
+            ),
+            label: page.displayName,
+          );
+        }
+      ).toList(),
     );
   }
 
   int getLocationIndex(){
-    final String _path = routerState.fullPath ?? "/";
-    return switch((
-      _path.startsWith("/leaderboards"),
-      _path.startsWith("/settings"),
-    )){
-      (true, _) => 1,
-      (_, true) => 2,
-      _ => 0
+    final String _path = routerState.fullPath!.split("/")[1]; 
+    return switch(_path){
+      "leaderboards" => 1,
+      "settings" => 2,
+      "" => 0,
+      _ => throw UnimplementedError("invalid page $_path")
     };
   }
 

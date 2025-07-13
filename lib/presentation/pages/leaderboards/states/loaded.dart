@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+part of leaderboard_library;
 
 class LeaderBoardsLoadedPage extends StatelessWidget {
   const LeaderBoardsLoadedPage({super.key});

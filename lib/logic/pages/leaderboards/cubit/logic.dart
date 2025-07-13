@@ -10,6 +10,14 @@ class LeaderboardLogic extends StatefulWidget {
 class _LeaderboardLogicState extends State<LeaderboardLogic> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return BlocBuilder<LeaderboardCubit, LeaderboardState>(
+      builder: (context, state) => switch(state){
+        LeaderboardLoadingState() => Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
+        LeaderboardLoadedState() => LeaderBoardsLoadedPage(),
+        _ => throw UnimplementedError("Unknown state ${state.runtimeType}")
+      }
+    );
   }
 }
