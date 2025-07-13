@@ -5,5 +5,7 @@ enum Category {
   scienceAndTechnology,
   math,
   politics,
-  history
+  history;
+
+  static Category fromInt(int value) => Category.values[value];
 }

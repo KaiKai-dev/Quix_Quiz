@@ -9,4 +9,12 @@ class HomePageState extends Equatable {
 
 class HomePageLoadingState extends HomePageState{}
 
-class HomePageLoadedState extends HomePageState{}
+class HomePageLoadedState extends HomePageState{
+  final List<Quiz> quizzes;
+  // final List<Event> events;
+  // final DailyTask dailyTask;
+
+  const HomePageLoadedState({
+    required this.quizzes,
+  });
+}

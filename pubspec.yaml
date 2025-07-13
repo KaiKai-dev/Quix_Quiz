@@ -22,6 +22,8 @@ dependencies:
   flutter_dotenv: ^5.2.1
   bloc: ^9.0.0
   fluttertoast: ^8.2.12
+  # svg_flutter: ^0.0.1
+  flutter_svg:
 
 dev_dependencies:
   flutter_test:
@@ -30,3 +32,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - images/
+    - images/task-list-menu-document-svgrepo-com.svg
+    - images/image.svg
+

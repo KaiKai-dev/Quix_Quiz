@@ -10,7 +10,7 @@ void main() async {
     // await dotenv.load(fileName: ".env");
 
     await Future.wait([
-      // createSupabaseInstance(),
+      createSupabaseInstance(),
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
       ]),

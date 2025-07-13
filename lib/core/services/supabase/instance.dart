@@ -3,8 +3,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> createSupabaseInstance() async {
   await Supabase.initialize(
-    url: dotenv.get('SUPABASE_DEPLOYMENT_URL'),
-    anonKey: dotenv.get('SUPABASE_ANONKEY'),
+    url: 'https://aogzaxgimdnukluaiobn.supabase.co',
+    anonKey: 'sb_publishable_918Chw1RC-m0OJ5m1uvacA_Z3qtlB_3',
     debug: true
   );
 }
