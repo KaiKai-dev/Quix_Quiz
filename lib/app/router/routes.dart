@@ -4,6 +4,10 @@ final routes = GoRouter(
   initialLocation: '/',
   routes: [
     ShellRoute(
+      builder: (context, state, child) => AppScaffold(
+        routerState: state,
+        child: child, 
+      ),
       routes: [
         GoRoute(
           path: '/',
@@ -24,11 +28,15 @@ final routes = GoRouter(
         GoRoute(
           path: '/leaderboards',
           name: 'leaderboards',
+          builder: (context, state) => BlocProvider(
+            create: (context) => LeaderboardCubit(),
+          child: LeaderboardLogic(),
+          ),
         ),
-        GoRoute(
-          path: '/settings',
-          name: 'settings',
-        )
+        // GoRoute(
+        //   path: '/settings',
+        //   name: 'settings',
+        // )
       ]
     )
   ]

@@ -4,7 +4,9 @@ class HomePageCubit extends Cubit<HomePageState>{
   HomePageCubit() : super(HomePageLoadingState());
 
   void init(){
-
+    Future.delayed(Durations.extralong4, (){
+      emit(HomePageLoadedState());
+    });
   }
 
 }
