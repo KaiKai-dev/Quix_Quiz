@@ -1,5 +1,4 @@
 import 'package:quiz_app/data/enum/category.dart';
-import 'package:quiz_app/data/models/quiz/question.dart';
 
 class Quiz {
   final int id;
