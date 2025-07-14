@@ -18,7 +18,7 @@ class MainFooter extends StatelessWidget {
       useLegacyColorScheme: false,
       // type: BottomNavigationBarType.shifting,
       backgroundColor: Colors.white,
-      selectedItemColor: Colors.blue,
+      selectedItemColor: Colors.indigo.shade700,
       unselectedItemColor: Colors.grey.shade700,
       selectedIconTheme: IconThemeData(
         size: 24,

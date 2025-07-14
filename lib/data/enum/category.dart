@@ -2,9 +2,12 @@ enum Category {
   general,
 
   //? for future purposes
-  scienceAndTechnology,
-  math,
+  sports,
   politics,
+  science,
+  music,
+  fashion,
+  math,
   history;
 
   static Category fromInt(int value) => Category.values[value];

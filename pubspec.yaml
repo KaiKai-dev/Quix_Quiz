@@ -35,5 +35,9 @@ flutter:
   assets:
     - images/
     - images/task-list-menu-document-svgrepo-com.svg
-    - images/image.svg
+    - images/categories/sports.svg
+    - images/categories/fashion.svg
+    - images/categories/music.svg
+    - images/categories/science.svg
+    - images/categories/general.svg
 
