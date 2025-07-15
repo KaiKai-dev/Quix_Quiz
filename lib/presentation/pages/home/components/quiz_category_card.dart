@@ -36,7 +36,8 @@ class QuizCard extends StatelessWidget {
           category.name.capitalize(),
           style: TextStyle(
             fontSize: 12,
-            color: Colors.white
+            color: Colors.white,
+            fontWeight: FontWeight.w500
           ),
         )
       ],

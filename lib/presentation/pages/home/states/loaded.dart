@@ -5,6 +5,7 @@ class HomePageLoadedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final homeContext = context.read<HomePageCubit>().state;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -30,47 +31,93 @@ class HomePageLoadedPage extends StatelessWidget {
               goalValue: 15, 
             ),
 
-            Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: 8,
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          "Quiz",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold
-                          ),
-                        ),
-                      ),
-                      Text(
-                        "View all",
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 16,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "Quiz",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold
                         ),
                       ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      QuizCard(category: Category.general),
-                      QuizCard(category: Category.sports),
-                      QuizCard(category: Category.science),
-                      QuizCard(category: Category.fashion),
-                      QuizCard(category: Category.music),
-                    ],
-                  )
-                ],
-              ),
+                    ),
+                    Text(
+                      "View All",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    QuizCard(category: Category.general),
+                    QuizCard(category: Category.sports),
+                    QuizCard(category: Category.science),
+                    QuizCard(category: Category.fashion),
+                    QuizCard(category: Category.music),
+                  ],
+                )
+              ],
             ),
 
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 16,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "More Games",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "View All",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  // scrollDirection: Axis.vertical,
+                  // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //   crossAxisCount: 2,
+                  //   crossAxisSpacing: 4,
+                  // ),
+                  // itemBuilder: (context, index) {
+                  //   GameCard(quizData: (homeContext as HomePageLoadedState).quizzes[index]);
+                  // },
 
+
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ...(homeContext as HomePageLoadedState).quizzes.map(
+                      (quiz) => Expanded(
+                        child: GameCard(
+                          quizData: quiz
+                        ),
+                      )
+                    ),
+                  ],
+                )
+              ],
+            ),
           ],
         ),
       ),

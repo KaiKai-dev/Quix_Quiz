@@ -15,11 +15,20 @@ class HomePageCubit extends Cubit<HomePageState>{
   Future<List<Quiz>> getQuizzes() async {
     final List<Map<String, dynamic>>  queryResult = await Supabase.instance.client.from("quizzes").select();
 
+    final Map<String, dynamic> dummydata = {
+      "id": 2,
+      "created_by": 1,
+      "title": "Sample Quiz",
+      "category": 0,
+    };
+
     print("queryResult: $queryResult");
 
-    return queryResult.map(
+    final returnValue = [...queryResult, dummydata].map(
       (result) => Quiz.fromJson(data: result),
     ).toList();
+
+    return returnValue;
   }
 
   void getQuestions({required int id}) async {

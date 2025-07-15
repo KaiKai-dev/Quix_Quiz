@@ -24,6 +24,7 @@ dependencies:
   fluttertoast: ^8.2.12
   # svg_flutter: ^0.0.1
   flutter_svg:
+  flutter_material_design_icons: ^1.1.7447
 
 dev_dependencies:
   flutter_test:
