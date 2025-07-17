@@ -21,3 +21,6 @@ class GameRoomLoadedState extends GameRoomState{
     sessionData
   ];
 }
+class GameRoomResultState extends GameRoomState {
+  
+}

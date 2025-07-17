@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quiz_app/data/enum/category.dart';
 import 'package:quiz_app/data/models/quiz/main_quiz.dart';
 import 'package:quiz_app/presentation/pages/home/components/game_card.dart';

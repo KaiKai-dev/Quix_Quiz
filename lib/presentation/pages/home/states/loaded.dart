@@ -7,19 +7,6 @@ class HomePageLoadedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final homeContext = context.read<HomePageCubit>().state;
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          // radius: 1.5,
-          // transform: GradientTransform,
-          // focalRadius: 1,
-          colors: [
-            Colors.indigo.shade700,
-            Colors.indigo.shade300,
-          ]
-        )
-      ),
       padding: EdgeInsets.all(16),
       child: SingleChildScrollView(
         child: Column(
@@ -106,11 +93,21 @@ class HomePageLoadedPage extends StatelessWidget {
 
 
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  spacing: 8,
                   children: [
                     ...(homeContext as HomePageLoadedState).quizzes.map(
                       (quiz) => Expanded(
                         child: GameCard(
-                          quizData: quiz
+                          quizData: quiz,
+                          onTapCallback: (id){
+                            // context.goNamed("game_room");
+                            context.goNamed(
+                              "game_room",
+                              extra: {
+                                "quiz_data": quiz,
+                              }
+                            );
+                          }
                         ),
                       )
                     ),

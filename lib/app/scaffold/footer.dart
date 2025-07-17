@@ -14,48 +14,57 @@ class MainFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      useLegacyColorScheme: false,
-      // type: BottomNavigationBarType.shifting,
-      backgroundColor: Colors.white,
-      selectedItemColor: Colors.indigo.shade700,
-      unselectedItemColor: Colors.grey.shade700,
-      selectedIconTheme: IconThemeData(
-        size: 24,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.elliptical(30,20),
+          topRight: Radius.elliptical(30,20),
+        )
       ),
-      unselectedIconTheme: IconThemeData(
-        size: 20,
+      child: BottomNavigationBar(
+        useLegacyColorScheme: false,
+        elevation: 0,
+        backgroundColor: Colors.black.withValues(alpha: 0),
+        selectedItemColor: Colors.indigo.shade700,
+        unselectedItemColor: Colors.grey.shade700,
+        selectedIconTheme: IconThemeData(
+          size: 24,
+        ),
+        unselectedIconTheme: IconThemeData(
+          size: 20,
+        ),
+        selectedLabelStyle: TextStyle(
+          fontSize: 14,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 12,
+        ),
+        currentIndex: getLocationIndex(),
+        onTap: (index){
+          if(index == 2) {
+            FToast().init(context).showToast(
+              child: GlobalToast(
+                title: "Coming Soon", 
+                description: "This area is under construction"
+              )
+            );
+            return;
+          }
+          context.go(indexedPages[index]!);
+        },
+        items: RootPageEnum.values.map(
+          (page) {
+            return BottomNavigationBarItem(
+              
+              icon: Icon(
+                page.displayIcon,
+              ),
+              label: page.displayName,
+            );
+          }
+        ).toList(),
       ),
-      selectedLabelStyle: TextStyle(
-        fontSize: 14,
-      ),
-      unselectedLabelStyle: TextStyle(
-        fontSize: 12,
-      ),
-      currentIndex: getLocationIndex(),
-      onTap: (index){
-        if(index == 2) {
-          FToast().init(context).showToast(
-            child: GlobalToast(
-              title: "Coming Soon", 
-              description: "This area is under construction"
-            )
-          );
-          return;
-        }
-        context.go(indexedPages[index]!);
-      },
-      items: RootPageEnum.values.map(
-        (page) {
-          return BottomNavigationBarItem(
-            
-            icon: Icon(
-              page.displayIcon,
-            ),
-            label: page.displayName,
-          );
-        }
-      ).toList(),
     );
   }
 
@@ -65,7 +74,7 @@ class MainFooter extends StatelessWidget {
       "leaderboards" => 1,
       "settings" => 2,
       "" => 0,
-      _ => throw UnimplementedError("invalid page $_path")
+      _ => 0
     };
   }
 

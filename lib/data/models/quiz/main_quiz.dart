@@ -6,27 +6,23 @@ class Quiz {
   // final DateTime created_at;
   final String title;
   final Category category;
+  final int questionCount;
 
   Quiz({
     required this.id, 
     required this.creatorId, 
-    // required this.created_at,
+    required this.questionCount,
     required this.title, 
     required this.category,
   });
 
   factory Quiz.fromJson({
     required Map<String, dynamic> data
-  }) {
-    // final String _createdAtExplode = (data["created_at"] as String)
-    print(data["created_at"].runtimeType);
-    return Quiz(
-      id: data["id"], 
-      creatorId: data["created_by"],
-      // created_at: DateTime.now(), 
-      title: data["title"], 
-      // questions: data["questions"], //should be List<Question> 
-      category: Category.fromInt(data["category"]),
-    );
-  } 
+  }) => Quiz(
+    id: data["id"], 
+    creatorId: data["created_by"],
+    title: data["title"],
+    questionCount: data["question_count"], 
+    category: Category.fromInt(data["category"]),
+  );
 }

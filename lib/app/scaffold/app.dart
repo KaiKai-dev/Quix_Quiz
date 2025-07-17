@@ -16,10 +16,41 @@ class AppScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: MainHeader(),
-      body: child,
-      bottomNavigationBar: MainFooter(routerState: routerState),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.indigo.shade700,
+              Colors.indigo.shade300,
+            ]
+          )
+        ),
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: MainHeader(),
+            body: Container(
+              // decoration: BoxDecoration(
+              //   gradient: LinearGradient(
+              //       begin: Alignment.topCenter,
+              //       end: Alignment.bottomCenter,
+              //     // radius: 1.5,
+              //     // transform: GradientTransform,
+              //     // focalRadius: 1,
+              //     colors: [
+              //       Colors.indigo.shade700,
+              //       Colors.indigo.shade300,
+              //     ]
+              //   )
+              // ),
+              child: child
+            ),
+            bottomNavigationBar: MainFooter(routerState: routerState),
+          ),
+      ),
     );
+    
+    
   }
 }
