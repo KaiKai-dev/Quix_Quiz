@@ -117,7 +117,7 @@ Widget child(Question question, BuildContext context){
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.05),
+                            color: Colors.black.withValues(alpha: 0.1),
                             spreadRadius: 2,
                             blurRadius: 4,
                             offset: Offset(0, 2)
