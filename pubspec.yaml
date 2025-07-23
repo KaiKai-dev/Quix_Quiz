@@ -35,6 +35,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - .env
     - images/
     - images/task-list-menu-document-svgrepo-com.svg
     - images/categories/sports.svg

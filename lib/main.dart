@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:quiz_app/app/router/library.dart';
 import 'package:quiz_app/core/services/supabase/instance.dart';
 
